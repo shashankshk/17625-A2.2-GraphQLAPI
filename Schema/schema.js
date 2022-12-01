@@ -1,6 +1,7 @@
-const {buildSchema} = require('graphql');
-
-var schema = buildSchema(`
+// Schema definitions included
+// Doctor, Specialty, Appointment, Calendar, Timeslot
+// Query and mutation
+var schema = `
     type Doctor {
         id: ID!
         name: String
@@ -48,7 +49,7 @@ var schema = buildSchema(`
         cancelAppointment(appointmentId: ID!, doctorId: ID!): Appointment
         updateAppointment(appointmentId: ID!, doctorId: ID!, patientName: String, timeslotId: ID, date: String): Appointment
     }
-`)
+`
 
 module.exports = {
     schema

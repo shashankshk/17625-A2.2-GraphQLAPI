@@ -1,21 +1,20 @@
-var express = require('express');
-var {graphqlHTTP} = require('express-graphql');
+var { ApolloServer } = require('@apollo/server');
+var { startStandaloneServer } = require('@apollo/server/standalone');
 var {schema} = require('./Schema/schema');
-var {root} = require("./Resolver/resolvers");
-var {errorType} = require("./util/ErrorMessages");
+var {resolvers} = require("./Resolver/resolvers");
 
-const app = express();
-const port  = Number.parseInt(process.env.PORT) || 4000
-app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
-    formatError: (err) => {
-        const error = errorType[err.message];
-        return ({message: error.message, statusCode: error.statusCode})
-    }
-}));
-app.listen(port, () => console.log('DAIAPI Server up and running'));
-module.exports= {
-    app
+// Creating server
+async function startServer() {
+    const server = new ApolloServer({ 
+        typeDefs: schema, 
+        resolvers,
+        includeStacktraceInErrorResponses: false
+    });
+    const { url } = await startStandaloneServer(server, {
+    listen: { port: 4001 },
+    });
+    console.log(`Server up and running at ${url}`);
+}
+module.exports = {
+    startServer
 }

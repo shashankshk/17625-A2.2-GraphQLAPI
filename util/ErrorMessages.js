@@ -1,3 +1,4 @@
+// File containing different error messages for clarity
 const DOCTOR_NOT_FOUND = "DOCTOR_NOT_FOUND";
 const INCORRECT_DOCTOR_QUERY = "INCORRECT_DOCTOR_QUERY";
 
@@ -39,7 +40,7 @@ const errorType = {
         statusCode: 404
     },
     INCORRECT_CALENDAR_QUERY: {
-        message: "Incorrect arguments passed for booking appointment",
+        message: "Incorrect arguments passed for calendar",
         statusCode: 400
     },
     APPOINTMENT_NOT_BOOKED: {

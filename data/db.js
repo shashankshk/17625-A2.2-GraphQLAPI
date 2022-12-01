@@ -1,4 +1,5 @@
-
+// Mock database 
+// Doctors data
 const doctors = [
     {
         "id": "1001",
@@ -25,6 +26,8 @@ const doctors = [
         "clinic": "Old Clinic"
     }
 ]
+
+// Specialties data
 const specialties = [
     {
         "id": "3001",
@@ -39,6 +42,8 @@ const specialties = [
         "specialty": "Cardiologist"
     }
 ]
+
+// Timeslots data
 const timeslots = [
     {
         "id": "10",
@@ -121,6 +126,8 @@ const timeslots = [
         "endTime": "17:00"
     }
 ]
+
+// Appointments data
 const appointments = [
     {
         "id": "2001",
@@ -156,6 +163,7 @@ const appointments = [
     }
 ]
 
+// Calendar data
 const calendar = [
     {
         id: "4001",
